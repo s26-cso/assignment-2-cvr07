@@ -76,6 +76,9 @@ is_pallindrome :
     la a0,true
     call printf
 
+    addi a0,s0,0
+    call fclose
+
     ld ra,56(sp)
     ld s0,48(sp)
     ld s1,40(sp)
@@ -92,6 +95,9 @@ is_pallindrome :
 not_pallindrome:
     la a0,false
     call printf
+
+    addi a0,s0,0
+    call fclose
 
     ld ra,56(sp)
     ld s0,48(sp)
