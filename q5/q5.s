@@ -34,6 +34,7 @@ main :
 
     addi a0,s0,0  
     call ftell # to get the pointer after fseek
+    beqz s1,is_pallindrome # for empty file
 
     addi s1,a0,0 # number of bytes
 
