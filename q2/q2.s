@@ -1,6 +1,5 @@
 .section .rodata
-fmt2: .string "%d "
-
+fmt2: .string "%d"
 .section .text
 .globl main
 
@@ -115,11 +114,18 @@ print_loop:
     add t0,t0,s4
     lw a1,0(t0)      # Load value from result array
     la a0,fmt2
-    call printf      
+    call printf
+
+    addi t0,s1,-1
+    beq t0,s3,skip_space
+    li a0,32
+    call putchar
+    skip_space:      
     addi s3,s3,1
     j print_loop
 
 exit_print:
+
     li a0,10         # Print newline
     call putchar
 
